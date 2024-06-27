@@ -49,8 +49,16 @@ func main() {
 		fmt.Fprintln(o)
 		fmt.Fprintln(o, "Options:")
 		flag.PrintDefaults()
+		fmt.Fprintln(o)
+		fmt.Fprintln(o, "Version: 1.0.0")
 	}
+	showVersion := flag.Bool("version", false, "show version and exit")
 	flag.Parse()
+
+	if *showVersion {
+		fmt.Println("1.0.0")
+		return
+	}
 
 	var rebuildKey byte
 	if rebuildKeyStr != "" {
